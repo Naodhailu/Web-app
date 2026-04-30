@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Wachemo SE Section A</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="form-container" style="display: flex; align-items: center; justify-content: center;">
+            <div class="welcome-content">
+                <div class="header" style="margin-bottom: 2rem;">
+                    <h1 id="welcome-message" style="font-size: 2rem;">Welcome! 👋</h1>
+                    <p style="font-size: 1.1rem; margin-top: 1rem;">You have successfully logged in to the Wachemo Software Engineering Section A portal.</p>
+                </div>
+                
+                <button id="logout-btn" class="btn" style="background: rgba(239, 68, 68, 0.8);">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const user = localStorage.getItem('currentUser');
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('welcome-message').textContent = `Welcome, ${user}! 👋`;
+        }
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
